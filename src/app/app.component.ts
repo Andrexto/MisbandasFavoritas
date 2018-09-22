@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
+import { Banda } from './banda';
 
-export class Banda {
-id: number;
-nombre: string;
-}
+const BANDAS: Banda[] =
+  [
+  {id: 11, nombre: 'soda Stereo' },
+  {id: 12, nombre: 'alan walker' },
+  {id: 13, nombre: 'avici' },
+  {id: 14, nombre: 'MARSHMELLOW' }
+  ];
 
 @Component({
   selector: 'app-root',
@@ -13,8 +17,11 @@ nombre: string;
 
 export class AppComponent {
   titulo = 'mis bandas favoritas';
-  banda: Banda = {
-    id: 1,
-    nombre:'MARSHMELLOW'
-  };
+  bandas = BANDAS;
+
+  banda: Banda;
+
+  seleccionar(item: Banda): void {
+    this.banda = item;
+  }
 }
